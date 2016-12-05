@@ -9,5 +9,6 @@ app.listen(3000, () => {
 
 // send GET request to server from browser
 app.get('/', (req, res) => {
+    // server index.html file
     res.sendFile(__dirname + '/index.html');
 })
