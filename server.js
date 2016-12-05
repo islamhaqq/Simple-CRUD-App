@@ -9,5 +9,5 @@ app.listen(3000, () => {
 
 // send GET request to server from browser
 app.get('/', (req, res) => {
-    res.send('May the Node be with you!');
+    res.send(__dirname + '/index.html');
 })
