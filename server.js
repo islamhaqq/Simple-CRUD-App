@@ -1,6 +1,12 @@
-// use express
+// import and use express
 const express = require('express');
 const app = express();
+
+// import body-parser
+const bodyParser = require('body-parser');
+
+// use body-parser
+app.use(bodyParser.urlencoded({extended:true}));
 
 // create server
 app.listen(3000, () => {
