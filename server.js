@@ -38,6 +38,11 @@ app.get('/', (req, res) => {
 // parse <form> POST request
 app.post('/quotes', (req, res) => {
     console.log('POST request sent');
+
     // log the parsed request body
     console.log(req.body);
+
+    // create quotes database collection to store quote objects
+    db.collection('quotes');
+    console.log('created quotes collection');
 });
