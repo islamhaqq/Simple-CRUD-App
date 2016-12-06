@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // use body-parser
+// parse request and response objects using body-parser
 app.use(bodyParser.urlencoded({extended:true}));
 
 // create server
@@ -20,6 +21,9 @@ app.get('/', (req, res) => {
 })
 
 // handle POST request from form
+// parse <form> POST request
 app.post('/quotes', (req, res) => {
     console.log('POST request sent');
+    // log the parsed request body
+    console.log(req.body);
 })
