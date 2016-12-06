@@ -5,9 +5,17 @@ const app = express();
 // import body-parser
 const bodyParser = require('body-parser');
 
+// import MongoDB
+const mongoClient = require('mongodb').MongoClient;
+
 // use body-parser
 // parse request and response objects using body-parser
 app.use(bodyParser.urlencoded({extended:true}));
+
+// connect to MongoDB via MongoClient connect method
+mongoClient.connect('link-to-server', (err, database) => {
+    // ... start the server
+});
 
 // create server
 app.listen(3000, () => {
