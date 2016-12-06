@@ -12,3 +12,8 @@ app.get('/', (req, res) => {
     // serve index.html file
     res.sendFile(__dirname + '/index.html');
 })
+
+// handle POST request from form
+app.post('/quotes', (req, res) => {
+    console.log('POST request sent');
+})
