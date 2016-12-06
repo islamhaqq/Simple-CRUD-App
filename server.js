@@ -10,19 +10,20 @@ const mongoClient = require('mongodb').MongoClient;
 
 // use body-parser
 // parse request and response objects using body-parser
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to MongoDB via MongoClient connect method
 mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:25459/star-wars-quotes', (err, database) => {
     // error handling
-    if (err) return console.log(err);
+    if (err) return console.log(err)
+    else console.log('connected to database');
 
     // use database
     const db = database;
 
     // start server once database is connected
     app.listen(3000, () => {
-    console.log('listening on port 3000');
+        console.log('listening on port 3000');
     });
 });
 
