@@ -14,12 +14,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 // connect to MongoDB via MongoClient connect method
 mongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds025459.mlab.com:25459/star-wars-quotes', (err, database) => {
-    // ... start the server
-});
-
-// create server
-app.listen(3000, () => {
+    // start server once database is connected
+    app.listen(3000, () => {
     console.log('listening on port 3000');
+    });
 });
 
 // send GET request to server from browser
