@@ -17,6 +17,9 @@ mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:254
     // error handling
     if (err) return console.log(err);
 
+    // use database
+    const db = database;
+
     // start server once database is connected
     app.listen(3000, () => {
     console.log('listening on port 3000');
