@@ -13,7 +13,7 @@ const mongoClient = require('mongodb').MongoClient;
 app.use(bodyParser.urlencoded({extended:true}));
 
 // connect to MongoDB via MongoClient connect method
-mongoClient.connect('link-to-server', (err, database) => {
+mongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds025459.mlab.com:25459/star-wars-quotes', (err, database) => {
     // ... start the server
 });
 
