@@ -20,7 +20,7 @@ var db;
 mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:25459/star-wars-quotes', (err, database) => {
     // error handling
     if (err) return console.log(err)
-    else console.log('connected to database');
+    else console.log('connected to database and authenticated');
 
     // use database
     db = database;
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     console.log('served index.html file');
 });
 
-// handle POST request from <form>
+// handle POST request from <form> upon navigation to '/quotes'
 // parse <form> POST request
 app.post('/quotes', (req, res) => {
     console.log('POST request sent');
@@ -47,6 +47,15 @@ app.post('/quotes', (req, res) => {
     console.log(req.body);
 
     // create quotes database collection to store quote objects
-    db.collection('quotes');
+    db.collection('quotes')
+        // save entry to collection
+        .save(req.body, (err, result) => {
+            // handle error
+            if (err) return console.log(err);
+
+            console.log('saved entry to database');
+            //  redirect back to root
+            res.redirect('/');
+        })
     console.log('created quotes collection');
 });
