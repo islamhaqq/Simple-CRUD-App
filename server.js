@@ -12,6 +12,10 @@ const mongoClient = require('mongodb').MongoClient;
 // parse request and response objects using body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+// define variable to use database
+var db;
+
 // connect to MongoDB via MongoClient connect method
 mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:25459/star-wars-quotes', (err, database) => {
     // error handling
@@ -19,7 +23,7 @@ mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:254
     else console.log('connected to database');
 
     // use database
-    const db = database;
+    db = database;
 
     // start server once database is connected
     app.listen(3000, () => {
@@ -34,7 +38,7 @@ app.get('/', (req, res) => {
     console.log('served index.html file');
 });
 
-// handle POST request from form
+// handle POST request from <form>
 // parse <form> POST request
 app.post('/quotes', (req, res) => {
     console.log('POST request sent');
