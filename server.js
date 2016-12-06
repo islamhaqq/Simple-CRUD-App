@@ -31,6 +31,7 @@ mongoClient.connect('mongodb://syednashikaman:snw0DxALj0P*@ds025459.mlab.com:254
 app.get('/', (req, res) => {
     // serve index.html file
     res.sendFile(__dirname + '/index.html');
+    console.log('served index.html file');
 });
 
 // handle POST request from form
